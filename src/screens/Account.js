@@ -1,10 +1,14 @@
 import { View, Text } from 'react-native'
 import React from 'react'
+import LoginForm from '../components/Auth/LoginForm'
+import UserDateForm from '../components/Auth/UserDateForm'
+
 
 export default function Account() {
+  const auth = null
   return (
     <View>
-      <Text>Account</Text>
+      {auth ? <UserDateForm/> : <LoginForm/>}
     </View>
   )
 }

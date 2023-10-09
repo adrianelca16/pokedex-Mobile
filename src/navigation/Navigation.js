@@ -52,7 +52,7 @@ const renderPokeBall = () => {
   return (
     <Image
       source={require('../assets/pokeball.png')}
-      style={{ width: 100, height: 100, top: -15}}
+      style={{ width: 130, height: 130, top: -18}}
     />
   )
 }
