@@ -4,10 +4,13 @@ import { Colors } from 'react-native/Libraries/NewAppScreen'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import {user, userDetails} from '../../utils/useDB'
+import useAuth from '../../hooks/useAuth'
 
 export default function LoginForm() {
 
     const [error, setError] = useState("")
+
+    const { login } = useAuth()
 
     const formik = useFormik({
         initialValues: initialValues(),
@@ -21,7 +24,7 @@ export default function LoginForm() {
             }
             else{
                 setError('')
-                console.log(userDetails)
+                login(userDetails)
             }
         }
     })
