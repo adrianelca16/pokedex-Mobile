@@ -11,7 +11,7 @@ export async function getPokemonsFavoriteApi(){
     }
 }
 
-export async function addPokrmonFavoriteApi(id){
+export async function addPokemonFavoriteApi(id){
     try {
         const favorites = []
         favorites.push(id)
