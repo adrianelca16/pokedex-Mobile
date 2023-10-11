@@ -8,10 +8,10 @@ export default function PokemonList(props) {
   const [page, setPage] = useState(1) // Página actual
 
   useEffect(() => {
-    if (!loading) {
+    if (!loading && loadPokemon) {
       setLoading(true)
       loadPokemon(page) // Carga datos de la página actual
-        .then(() => {
+      .then(() => {
           setPage(page + 1) // Incrementa la página
           setLoading(false)
         })
@@ -24,7 +24,7 @@ export default function PokemonList(props) {
     }
   }
 
-  return (
+  return loadPokemon ? (
     <FlatList
       data={pokemon}
       numColumns={2}
@@ -43,6 +43,15 @@ export default function PokemonList(props) {
         />
         )
       }
+    />
+  ) : (
+    <FlatList
+      data={pokemon}
+      numColumns={2}
+      showsVerticalScrollIndicator={false}
+      keyExtractor={(pokemon) => String(pokemon.id)}
+      renderItem={({ item }) => <PokemonCard pokemon={item} />}
+      contentContainerStyle={styles.flatListConatiner}
     />
   )
 }

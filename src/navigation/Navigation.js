@@ -7,8 +7,8 @@ import {Image} from 'react-native'
 
 // Import screen components
 import Account from '../screens/Account';
-import Favorite from '../screens/Favorite';
 import PokedexNavegation from './PokedexNavegation';
+import FavoriteNavigation from './FavoriteNavigation';
 
 // Create bottom tab navigator
 const Tab = createBottomTabNavigator();
@@ -18,14 +18,15 @@ export default function Navigation() {
 
     // Return tab navigator with screens
     return (
-        <Tab.Navigator>
-            <Tab.Screen name='Favorite' component={Favorite} options={
+        <Tab.Navigator initialRouteName='PokedexNavegation'>
+            <Tab.Screen name='Favorite' component={FavoriteNavigation} options={
                 {
                     tabBarLabel: "Favoritos",
                     tabBarIcon: ({color,size}) => (
                         <Icon name='heart' color={color} size={size}/>
                     ),
-                    title: 'Favoritos'
+                    title: '',
+                    headerShown: false
                 }
             }/>
             <Tab.Screen name='PokedexNavegation' component={PokedexNavegation} options={{
